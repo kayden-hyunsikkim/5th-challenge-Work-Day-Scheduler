@@ -38,7 +38,7 @@ $(function () {
         todo5: userwhattodo5.val().trim()
       };
       localStorage.setItem("Timetable", JSON.stringify(Timetable));
-     
+
     }
   })
 
@@ -46,6 +46,8 @@ $(function () {
     let storeTimetable = JSON.parse(localStorage.getItem("Timetable"));
     if (storeTimetable !== null) {
       Timetable = storeTimetable;
+    } else {
+      return;
     }
     document.querySelector('#todo9').textContent = storeTimetable.todo9;
     document.querySelector('#todo10').textContent = storeTimetable.todo10;
@@ -71,9 +73,117 @@ $(function () {
   // current hour in 24-hour time?
   //
 
+
+
+  let timeblock9 = $("#hour-9");
+  let timeblock10 = $("#hour-10");
+  let timeblock11 = $("#hour-11");
+  let timeblock12 = $("#hour-12");
+  let timeblock1 = $("#hour-1");
+  let timeblock2 = $("#hour-2");
+  let timeblock3 = $("#hour-3");
+  let timeblock4 = $("#hour-4");
+  let timeblock5 = $("#hour-5");
+
+
+  timeblock9 = 9;
+  timeblock10 = 10;
+  timeblock11 = 11;
+  timeblock12 = 12;
+  timeblock1 = 13;
+  timeblock2 = 14;
+  timeblock3 = 15;
+  timeblock4 = 16;
+  timeblock5 = 17;
+
+
+  let currentTime = dayjs().hour();
+
+  if (currentTime > timeblock9) {
+    $("#hour-9").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock9) {
+    $("#hour-9").attr('class', 'row time-block future');
+  } else {
+    $("#hour-9").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock10) {
+    $("#hour-10").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock10) {
+    $("#hour-10").attr('class', 'row time-block future');
+  } else {
+    $("#hour-10").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock11) {
+    $("#hour-11").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock11) {
+    $("#hour-11").attr('class', 'row time-block future');
+  } else {
+    $("#hour-11").attr('class', 'row time-block present');
+  }
+
+
+
+  if (currentTime > timeblock12) {
+    $("#hour-12").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock12) {
+    $("#hour-12").attr('class', 'row time-block future');
+  } else {
+    $("#hour-12").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock1) {
+    $("#hour-1").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock1) {
+    $("#hour-1").attr('class', 'row time-block future');
+  } else {
+    $("#hour-1").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock2) {
+    $("#hour-2").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock2) {
+    $("#hour-2").attr('class', 'row time-block future');
+  } else {
+    $("#hour-2").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock3) {
+    $("#hour-3").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock3) {
+    $("#hour-3").attr('class', 'row time-block future');
+  } else {
+    $("#hour-3").attr('class', 'row time-block present');
+  }
+
+
+  if (currentTime > timeblock4) {
+    $("#hour-4").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock4) {
+    $("#hour-4").attr('class', 'row time-block future');
+  } else {
+    $("#hour-4").attr('class', 'row time-block present');
+  }
+
+  if (currentTime > timeblock5) {
+    $("#hour-5").attr('class', 'row time-block past');
+  } else if (currentTime < timeblock5) {
+    $("#hour-5").attr('class', 'row time-block future');
+  } else {
+    $("#hour-5").attr('class', 'row time-block present');
+  }
+
+
+
   //
   // TODO: Add code to display the current date in the header of the page.
-  let currentDay = dayjs().format('dddd, MMMM D YYYY, h:mm:ss a');
+  let currentDay = dayjs().format('dddd, MMMM D YYYY');
   $('#currentDay').text(currentDay);
 
 });
