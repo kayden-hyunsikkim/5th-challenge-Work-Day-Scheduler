@@ -1,7 +1,7 @@
 
 $(function () {
 
-  // saving what user type in timeblock in local storage when user click save button. 
+  // saving what user type in timeblock in local storage when user click save button.  
   let timetable = $("#timetable");
   let userwhattodo9 = $("#todo9");
   let userwhattodo10 = $("#todo10");
@@ -12,6 +12,7 @@ $(function () {
   let userwhattodo3 = $("#todo15");
   let userwhattodo4 = $("#todo16");
   let userwhattodo5 = $("#todo17");
+  // selected all the input with Id 
 
   timetable.on("click", function (event) {
     let button = event.target;
@@ -31,9 +32,11 @@ $(function () {
 
     }
   })
+  // when user click save button, the textcontent goes into object named Timetable 
+  // each input's Id is a key of each value
+  // The object will be saved in local storage
 
-
-  // getting data from local storage which is saved and save in timeblock after reloading page.
+  // getting saved data from local storage and save in timeblock to show them even after reloading page.
   function init() {
     let storeTimetable = JSON.parse(localStorage.getItem("Timetable"));
     if (storeTimetable !== null) {
@@ -57,6 +60,7 @@ $(function () {
 
 
   // giving present,past,future class each compare to currenttime
+  // controlled by selecting Id and gaved the ids from 1pm to 5pm such as hour-13(13pm), hour-14(14pm) etc because dayjs().hour() returns 24hours unit.
   let currentTime = dayjs().hour();
 
   for (i = 9; i < 18; i++) {
